@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Image Filters</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <script type="text/javascript" src="../js/filters.js"></script>
+  <script type="text/javascript" src="js/zepto.js"></script>
+  <script>
+    $(function() {
+      var dropbox = $('.dropbox').get(0);
+      var noopHandler = function(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+      };
+      var drop = function() {
+        evt.stopPropagation();
+        evt.preventDefault();
+      };
+      var dropEntered = function() {
+        $('.dropbox').addClass('dragOver');
+      }
+      var dropExited = function() {
+        $('.dropbox').removeClass('dragOver');
+      }
+      dropbox.addEventListener("dragenter", dropEntered, false);
+      dropbox.addEventListener("dragleave", dropExited, false);
+      dropbox.addEventListener("dragover", noopHandler, false);
+      dropbox.addEventListener("drop", drop, false);
+    });
+  </script>
+</head>
+<body>
+  <div class="mainContainer" ontouchstart="">
+    <div class="dropbox">
+      <span class="message">
+        <p><i class="fa fa-arrow-down fa-6 fa-inverse"></i></p>
+        <h1>Drop an image here</h1>
+      <span>
+    </div>
+  </div>
+</body>
+</html>

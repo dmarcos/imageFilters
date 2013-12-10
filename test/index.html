@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Image Filters Tests</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+      mocha.ui('bdd');
+      mocha.reporter('html');
+      expect = chai.expect;
+    </script>
+    <script src="../imageFilters.js"></script>
+    <script src="js/setup.js"></script>
+    <script src="js/tests.js"></script>
+    <script>
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {
+        mocha.setup({globals: ['LiveReload']});
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>
